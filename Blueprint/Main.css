@@ -1,0 +1,31 @@
+body {
+    background-color: #3492d1;
+}
+
+.block1 {
+    height: 120px   ;
+    background-color: white;
+    margin: 0;
+    display: flex;
+    
+}
+
+.block2 {
+    height: 580px;
+    background-color: skyblue;
+    margin: 0;
+
+
+}
+
+#icon {
+    width: 20%;
+    height: 120px   ;
+
+}
+
+#random-text {
+    width: 80%;
+    height: 120px   ;
+
+}
