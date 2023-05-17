@@ -71,6 +71,7 @@ body {
     width: 85%;
     height: 580px;
     background-color: rgb(181, 232, 248);
+    display: flex;
 }
 
 #data {
