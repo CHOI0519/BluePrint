@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="/public/Main.css">
+    <link rel="icon" href="./image/3d-print.ico" type="image/x-icon" />
+    <title>BluePrint</title>  
+  </head>
+  <body>
+    <div class="block1">
+      <div id="icon">
+        <img src="./image/image1.jpg" width="70%" height="70%"/>
+      </div>
+      <div id="random-text"></div>
+      <script>
+        fetch('./json/text.json')
+          .then(response => response.json())
+          .then(data  => {
+          const entries = data.entries;
+          const randomIndex = Math.floor(Math.random() * entries.length);
+          const selectedEntry = entries[randomIndex];
+          const outputDiv = document.getElementById('random-text');
+          outputDiv.innerHTML = 
+            `오늘의 한마디 : ${selectedEntry.text}<br>${selectedEntry.person}`;
+          })
+          .catch(error => console.error(error));
+      </script>
+    </div>
+    <div class="block2">
+      <div id="box1">
+        <form action="">
+          <div id="data">
+            <p style="margin-bottom: 0%;"><label for="height" style="font-size: large; color: cornflowerblue;">키</label></p>
+            <input type="text" id="height" style="margin-left: 10px;">
+            <label for="height" style="font-size: small;">(cm)</label>
+          </div>
+          <div id="data">
+            <p style="margin-bottom: 0%;"><label for="weight" style="font-size: large; color: cornflowerblue;">몸무게</label></p>
+            <input type="text" id="weight" style="margin-left: 10px;">
+            <label for="weight" style="font-size: small;">(kg)</label>
+          </div>
+          <div id="data">
+            <p style="margin-bottom: 0%;"><label for="gender" style="font-size: large; color: cornflowerblue;">성별</label></p>
+            <label for="gender1" style="margin-left: 10px;">(남자)</label>
+            <input type="checkbox" id="gender1">
+            <label for="gender2" style="margin-left: 20px;">(여자)</label>
+            <input type="checkbox" id="gender2">
+          </div>
+          <div id="data">
+            <p style="margin-bottom: 0%;"><label for="number" style="font-size: large; color: cornflowerblue;">운동횟수</label></p>
+            <div>
+              <div>
+                <input type="checkbox" id="number1" style="margin-left: 20px;">
+                <label for="number1">주 1회 미만</label>
+              </div>
+              <div>
+                <input type="checkbox" id="number2" style="margin-left: 20px;">
+                <label for="number2">주 1회 이상 3회 미만</label>
+              </div>
+              <div>
+                <input type="checkbox" id="number3" style="margin-left: 20px;">
+                <label for="number3">주 3회 이상 5회 미만</label>
+              </div>
+              <div>
+                <input type="checkbox" id="number4" style="margin-left: 20px;">
+                <label for="number4">주 5회 이상</label>
+              </div>
+            </div> 
+          </div>
+          <div id="data">
+            <p style="margin-bottom: 0%;"><label for="time" style="font-size: large; color: cornflowerblue;">운동시간</label></p>
+            <div>
+              <div>
+                <input type="checkbox" id="time1" style="margin-left: 20px;">
+                <label for="time1">30분 미만</label>
+              </div>
+              <div>
+                <input type="checkbox" id="time2" style="margin-left: 20px;">
+                <label for="time2">30분 이상 1시간 미만</label>
+              </div>
+              <div>
+                <input type="checkbox" id="time3" style="margin-left: 20px;">
+                <label for="time3">1시간 이상 2시간 미만</label>
+              </div>
+              <div>
+                <input type="checkbox" id="time4" style="margin-left: 20px;">
+                <label for="time4">2시간 이상</label>
+              </div>
+            </div>
+          </div>
+          <div id="data">
+            <p style="margin-bottom: 0%;"><label for="meal" style="font-size: large; color: cornflowerblue;">식사량</label></p>
+            <p style="font-size: small; color: gray; margin-top: 0%; margin-left: 10px; margin-bottom: 0%;">(평균적인 식습관 생각해주세요)</p>
+            <div>
+              <div>
+                <input type="checkbox" id="meal1" style="margin-left: 20px;">
+                <label for="meal1">하루 3끼</label>
+              </div>
+              <div>
+                <input type="checkbox" id="meal2" style="margin-left: 20px;">
+                <label for="meal2">하루 2끼</label>
+              </div>
+              <div>
+                <input type="checkbox" id="meal3" style="margin-left: 20px;">
+                <label for="meal3">하루 1끼</label>
+              </div>
+            </div>
+          </div>
+          <div id="data">
+            <p style="margin-bottom: 0%;"><label for="disease" style="font-size: large; color: cornflowerblue;">보유질병</label></p>
+            <p style="font-size: small; color: gray; margin-top: 0%; margin-left: 10px; margin-bottom: 0%;">(중복 선택 가능)</p>
+            <div>
+              <div>
+                <input type="checkbox" id="disease1" style="margin-left: 20px;">
+                <label for="disease1">디스크(허리,목 등)</label>
+              </div>
+              <div>
+                <input type="checkbox" id="disease2" style="margin-left: 20px;">
+                <label for="disease2">당뇨</label>
+              </div>
+              <div>
+                <input type="checkbox" id="disease3" style="margin-left: 20px;">
+                <label for="disease3">호흡기질환</label>
+              </div>
+              <div>
+                <input type="checkbox" id="disease4" style="margin-left: 20px;">
+                <label for="disease4">기타</label>
+                <input type="text" size="10" id="disease4" style="margin-left: 2px;">
+              </div>
+            </div>
+          </div>
+          <div id="data">
+            <p style="margin-bottom: 0%;"><label for="goal" style="font-size: large; color: cornflowerblue;">사용목적</label></p>
+            <div>
+              <div>
+                <input type="checkbox" id="goal1" style="margin-left: 20px;">
+                <label for="goal1">체중감량</label>
+              </div>
+              <div>
+                <input type="checkbox" id="goal2" style="margin-left: 20px;">
+                <label for="goal2">단순건강관리</label>
+              </div>
+              <div>
+                <input type="checkbox" id="goal3" style="margin-left: 20px;">
+                <label for="goal3">재활치료</label>
+              </div>
+              <div>
+                <input type="checkbox" id="goal4" style="margin-left: 20px;">
+                <label for="goal4">기타</label>
+                <input type="text" size="10" id="disease4" style="margin-left: 2px;">
+              </div>
+            </div>
+          </div>
+          <button class="w-btn-outline w-btn-blue-outline" type="button">제출</button>
+        </form>
+      </div>
+      <div id="box2">
+        <h1 style="text-align: center; margin-top: 240px; color: white;">⬅️정보를입력해주세요</h1>
+      </div>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>
