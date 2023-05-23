@@ -4,14 +4,38 @@ var http = require('http');
 
 const mime = require('mime-types');
 const app = express();
-const port = 3000;
+const port = 8080;
+
+
+
+// app.set()
+
+// app.use((req, res, next) => {
+//   res.setHeader('Content-Security-Policy', 
+//   "script-src 'self' 'unsafe-inline'http://dapi.kakao.com");
+//   next();
+// });
+
+// const { expressCspHeader, INLINE, NONE, SELF } = require('express-csp-header');
+// app.use(expressCspHeader({
+//     directives: {
+//         'script-src': [SELF, INLINE, "http://dapi.kakao.com"],
+//     }
+// }));
 
 app.use((req, res, next) => {
-  res.setHeader('Content-Security-Policy', "script-src 'self' 'unsafe-inline'");
+  res.setHeader('Content-Security-Policy',
+  "script-src 'self' 'unsafe-inline'");
   next();
 });
 
-app.use(express.static('public'));
+app.use((req, res, next) => {
+  res.setHeader('Content-Security-Policy',
+  "script-src 'self' 'unsafe-inline' http://dapi.kakao.com ");
+  next();
+});
+
+app.use(express.static('public'));  
 
 app.get('/public/stylesheet/Main.css', (req, res) => {
   res.set('Content-Type', mime.lookup('Main.css'));
@@ -19,16 +43,13 @@ app.get('/public/stylesheet/Main.css', (req, res) => {
 });
 
 app.get('/', (req, res) => { 
-  res.sendFile(__dirname +  '/public/views/MainPage.html');
+  res.sendFile(__dirname +  '/views/MainPage.html');
 })
 
 app.get('/public/ListPage.html', (req, res) => { 
-  res.sendFile(__dirname +  '/public/views/ListPage.html');
+  res.sendFile(__dirname +  '/views/ListPage.html');
 })
 
-app.get('/kakao-maps-api', (req, res) => {
-  res.sendFile(__dirname + '/public/kakao.js');
-});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

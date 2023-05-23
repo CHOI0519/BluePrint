@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="/public/stylesheet/Main.css">
-    <link rel="icon" href="./image/3d-print.ico" type="image/x-icon" />
+    <link rel="icon" href="/image/3d-print.ico" type="image/x-icon" />
     <title>BluePrint</title>  
   </head>
   <body>
     <div class="block1">
       <div id="icon">
-        <img src="./image/image1.jpg" width="70%" height="70%"/>
-      </div>    
+        <img src="/image/image1.jpg" width="70%" height="70%"/>
+      </div>
       <div id="random-text"></div>
       <script>
-        fetch('./json/text.json')
+        fetch('/json/text.json')
           .then(response => response.json())
           .then(data  => {
           const entries = data.entries;
@@ -155,20 +155,9 @@
           <script type="text/javascript" src="./js/function.js"></script>
         </form>
       </div>
-      <div id="box2" style="display: flex; width: 830.950px; height: 580px;">
-        <div style="background-color: gray; width: 60%; height: 580px;"></div>
-        <div style="display: block; width: 40%; height: 580px;">
-            <div id="map" style="width:100%;height: 300px;"></div>
-            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d4364fee43ac2c488be84b3c4df1db35"></script>
-            <script>
-                  var mapContainer = document.getElementById('map');
-                  var mapOption = {
-                    center: new kakao.maps.LatLng(33.450701, 126.570667),
-                    level: 3
-                  };
-                  var map = new kakao.maps.Map(mapContainer, mapOption);  
-            </script>           
-            <div style="background-color: oldlace; width: 100%; height: 280px;"></div>
+      <div id="box2">
+        <div style="width: 100%;">
+        <h1 style="text-align: center; margin-top: 240px; color: white;">⬅️정보를입력해주세요</h1>
         </div>
     </div>
   </body>
