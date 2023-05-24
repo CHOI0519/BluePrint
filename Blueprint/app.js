@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 var fs = require('fs');
 var http = require('http');
 
@@ -29,11 +30,13 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-  res.setHeader('Content-Security-Policy',
-  "script-src 'self' 'unsafe-inline' http://dapi.kakao.com ");
-  next();
-});
+// app.use((req, res, next) => {
+//  res.setHeader('Content-Security-Policy',
+//  "script-src 'self' 'unsafe-inline' http://dapi.kakao.com ");
+//   next();
+// });
+
+app.use('/node_modules', express.static(path.join(__dirname , '/node_modules')));
 
 app.use(express.static('public'));  
 
@@ -46,10 +49,21 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname +  '/views/MainPage.html');
 })
 
+app.get('/public/MainPage.html', (req, res) => { 
+  res.sendFile(__dirname +  '/views/MainPage.html');
+})
+
 app.get('/public/ListPage.html', (req, res) => { 
   res.sendFile(__dirname +  '/views/ListPage.html');
 })
 
+app.use('/public', express.static('public', { 
+  setHeaders: (res, path, stat) => {
+    if (path.endsWith('.js')) {
+      res.setHeader('Content-Type', 'application/javascript');
+    }
+  }
+}));
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

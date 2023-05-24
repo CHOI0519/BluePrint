@@ -2,14 +2,27 @@
 <html lang="">
   <head>
     <meta charset="utf-8" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' http://dapi.kakao.com http://t1.daumcdn.net"> -->
     <link rel="stylesheet" type="text/css" href="/public/stylesheet/Main.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
     <link rel="icon" href="/image/3d-print.ico" type="image/x-icon" />
     <title>BluePrint</title>  
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="./js/function.js"></script>
   </head>
   <body>
+    <div class=".loader">
+      <img src="/public/image/loading.gif">
+    </div>
+    <script>
+      // $(window).load(function){
+      //   $()
+      // }
+    </script>
     <div class="block1">
       <div id="icon">
-        <img src="/image/image1.jpg" width="70%" height="70%"/>
+        <img src="/image/image1.jpg" width="70%" height="70% " onclick="gomain()"/>
       </div>    
       <div id="random-text"></div>
       <script>
@@ -156,20 +169,61 @@
         </form>
       </div>
       <div id="box2" style="display: flex; height: 580px;">
-        <div style="background-color: gray; width: 60%; height: 580px;"></div>
-        <div style="display: block; width: 40%; height: 580px;">
-            <div id="map" style="width:100%;height: 300px;"></div>
-            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	3da6a0c225151a076819c6ae8e68d48a" nonce="EDNnf03nceIOfn39fn3e9h3sdfa"></script>
-            <script>
-                  var mapContainer = document.getElementById('map');
-                  var mapOption = {
-                    center: new kakao.maps.LatLng(33.450701, 126.570667),
-                    level: 3
-                  };
-                  var map = new kakao.maps.Map(mapContainer, mapOption);  
-            </script>           
-            <div style="background-color: oldlace; width: 100%; height: 280px;"></div>
+        <div id="showlist" style="background-color:white; width: 60%; height: 580px; overflow: scroll;">
+          <section class="fade-class" id="intro">
+            <h2>조사 결과서</h2>
+            <p>키:</p>
+            <p>몸무게:</p>
+            <p>bmi:</p>
+          </section>
+          <section class="fade-class" id="intro2">
+            <h2>조사 결과서</h2>
+            <p>키:</p>
+            <p>몸무게:</p>
+            <p>bmi:</p>
+          </section><section class="fade-class" id="intro3">
+            <h2>조사 결과서</h2>
+            <p>키:</p>
+            <p>몸무게:</p>
+            <p>bmi:</p>
+          </section><section class="fade-class" id="intro4">
+            <h2>조사 결과서</h2>
+            <p>키:</p>
+            <p>몸무게:</p>
+            <p>bmi:</p>
+          </section>
+          </section><section class="fade-class" id="intro4">
+            <h2>조사 결과서</h2>
+            <p>키:</p>
+            <p>몸무게:</p>
+            <p>bmi:</p>
+          </section>
+          </section><section class="fade-class" id="intro4">
+            <h2>조사 결과서</h2>
+            <p>키:</p>
+            <p>몸무게:</p>
+            <p>bmi:</p>
+          </section>
+          <div class="fade-class" style="background-color: aliceblue; height: 200px;"></div>
         </div>
-    </div>
+        <div style="display: block; width: 40%; height: 580px; background-color: azure;">
+          <div id="map" style="width:100%;height: 300px;"></div>
+          <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	3da6a0c225151a076819c6ae8e68d48a" nonce="EDNnf03nceIOfn39fn3e9h3sdfa"></script>
+          <script>
+            var mapContainer = document.getElementById('map');
+            var mapOption = {
+              center: new kakao.maps.LatLng(33.450701, 126.570667),
+              level: 3
+            };
+            var map = new kakao.maps.Map(mapContainer, mapOption);  
+            </script>            -->
+            <div style="background-color: oldlace; width: 100%; height: 280px;"></div>
+          </div>
+        </div>
+      <script type="text/javascript" src="/public/js/show.js"></script>
   </body>
+  <!-- <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script> -->
 </html>

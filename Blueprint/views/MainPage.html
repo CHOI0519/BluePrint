@@ -5,11 +5,13 @@
     <link rel="stylesheet" type="text/css" href="/public/stylesheet/Main.css">
     <link rel="icon" href="/image/3d-print.ico" type="image/x-icon" />
     <title>BluePrint</title>  
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="./js/function.js"></script>
   </head>
   <body>
     <div class="block1">
       <div id="icon">
-        <img src="/image/image1.jpg" width="70%" height="70%"/>
+        <img src="/image/image1.jpg" width="70%" height="70%"  onclick="gomain()"/>
       </div>
       <div id="random-text"></div>
       <script>
@@ -151,8 +153,7 @@
               </div>
             </div>
           </div>
-          <button class="w-btn-outline w-btn-blue-outline" type="button" onclick="loadHTML()">제출</button>
-          <script type="text/javascript" src="./js/function.js"></script>
+          <button class="w-btn-outline w-btn-blue-outline" type="button">제출</button>
         </form>
       </div>
       <div id="box2">
