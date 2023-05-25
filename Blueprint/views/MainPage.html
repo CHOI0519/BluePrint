@@ -6,7 +6,7 @@
     <link rel="icon" href="/image/3d-print.ico" type="image/x-icon" />
     <title>BluePrint</title>  
     <script src="/node_modules/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="./js/function.js"></script>
+    <script type="text/javascript" src="/public/js/function.js"></script>
   </head>
   <body>
     <div class="block1">
@@ -30,7 +30,7 @@
     </div>
     <div class="block2">
       <div id="box1">
-        <form action="./ListPage.html" method="get" onsubmit="loadHTML()">
+        <form action="/views/ListPage.html" method="get">
           <div id="data">
             <p style="margin-bottom: 0%;"><label for="height" style="font-size: large; color: cornflowerblue;">키</label></p>
             <input type="text" id="height" style="margin-left: 10px;">
@@ -153,7 +153,7 @@
               </div>
             </div>
           </div>
-          <button class="w-btn-outline w-btn-blue-outline" type="button">제출</button>
+          <button id="clickbtn" class="w-btn-outline w-btn-blue-outline" type="submit">제출</button>
         </form>
       </div>
       <div id="box2">

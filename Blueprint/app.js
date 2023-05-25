@@ -49,11 +49,11 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname +  '/views/MainPage.html');
 })
 
-app.get('/public/MainPage.html', (req, res) => { 
+app.get('/views/MainPage.html', (req, res) => { 
   res.sendFile(__dirname +  '/views/MainPage.html');
 })
 
-app.get('/public/ListPage.html', (req, res) => { 
+app.get('/views/ListPage.html', (req, res) => { 
   res.sendFile(__dirname +  '/views/ListPage.html');
 })
 
