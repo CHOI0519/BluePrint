@@ -4,6 +4,7 @@ var fs = require('fs');
 var http = require('http');
 
 const mime = require('mime-types');
+const e = require('express');
 const app = express();
 const port = 8080;
 
@@ -38,7 +39,8 @@ app.use((req, res, next) => {
 
 app.use('/node_modules', express.static(path.join(__dirname , '/node_modules')));
 
-app.use(express.static('public'));  
+app.use(express.static('public')); 
+app.use(express.static('views'));  
 
 app.get('/public/stylesheet/Main.css', (req, res) => {
   res.set('Content-Type', mime.lookup('Main.css'));
@@ -53,9 +55,13 @@ app.get('/views/MainPage.html', (req, res) => {
   res.sendFile(__dirname +  '/views/MainPage.html');
 })
 
-app.get('/views/ListPage.html', (req, res) => { 
-  res.sendFile(__dirname +  '/views/ListPage.html');
-})
+// app.get('/views/ListPage.html', (req, res) => { 
+//   res.sendFile(__dirname +  '/views/ListPage.html');
+
+//   console.log('Recieved data:', req.body);
+
+//   res.sendStatus(200);
+// })
 
 app.use('/public', express.static('public', { 
   setHeaders: (res, path, stat) => {
@@ -68,6 +74,4 @@ app.use('/public', express.static('public', {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
-
-
 
