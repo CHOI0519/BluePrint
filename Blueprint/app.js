@@ -55,8 +55,9 @@ app.get('/views/MainPage.html', (req, res) => {
   res.sendFile(__dirname +  '/views/MainPage.html');
 })
 
-// app.get('/views/ListPage.html', (req, res) => { 
-//   res.sendFile(__dirname +  '/views/ListPage.html');
+app.get('/views/ListPage.html', (req, res) => { 
+  res.sendFile(__dirname +  '/views/ListPage.html');
+})
 
 //   console.log('Recieved data:', req.body);
 

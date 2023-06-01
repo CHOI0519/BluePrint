@@ -30,34 +30,34 @@
     </div>
     <div class="block2">
       <div id="box1">
-        <form  action="/views/MainPage.html" method="get" accept-charset="utf-8" id="myForm">
+        <form  action="/views/MainPage.html" method="get" accept-charset="utf-8" id="myForm" onsubmit="return AlertCheckbox1()">
           <div id="data">
             <p style="margin-bottom: 0%;"><label for="height" style="font-size: large; color: cornflowerblue;">키</label></p>
-            <input type="text" name="height" style="margin-left: 10px;"> cm
+            <input type="text" id="cm" name="height" style="margin-left: 10px;"> cm
           </div>
           <div id="data">
             <p style="margin-bottom: 0%;"><label for="weight" style="font-size: large; color: cornflowerblue;">몸무게</label></p>
-            <input type="text" name="weight" style="margin-left: 10px;"> kg
+            <input type="text" id="kg" name="weight" style="margin-left: 10px;"> kg
           </div>
           <div id="data">
             <p style="margin-bottom: 0%;"><label for="gender" style="font-size: large; color: cornflowerblue;">성별</label></p>
-            <input type="checkbox" name="gender1" style="margin-left: 10px;"> (남자)
-            <input type="checkbox" name="gender2" style="margin-left: 30px;"> (여자)
+            <input type="checkbox" class="checkbox1"  name="gender1" style="margin-left: 10px;"> (남자)
+            <input type="checkbox" class="checkbox1" name="gender2" style="margin-left: 30px;"> (여자)
           </div>
           <div id="data">
             <p style="margin-bottom: 0%;"><label for="number" style="font-size: large; color: cornflowerblue;">운동횟수</label></p>
             <div>
               <div>
-                <input type="checkbox" name="number1" style="margin-left: 20px;"> 주 1회 미만
+                <input type="checkbox" class="checkbox2"  name="number1" style="margin-left: 20px;"> 주 1회 미만
               </div>
               <div>
-                <input type="checkbox" name="number2" style="margin-left: 20px;"> 주 1회 이상 3회 미만
+                <input type="checkbox" class="checkbox2"  name="number2" style="margin-left: 20px;"> 주 1회 이상 3회 미만
               </div>
               <div>
-                <input type="checkbox" name="number3" style="margin-left: 20px;"> 주 3최 이상 5회 미만
+                <input type="checkbox" class="checkbox2"  name="number3" style="margin-left: 20px;"> 주 3최 이상 5회 미만
               </div>
               <div>
-                <input type="checkbox" name="number4" style="margin-left: 20px;"> 주 5회 이상
+                <input type="checkbox" class="checkbox2"  name="number4" style="margin-left: 20px;"> 주 5회 이상
               </div>
             </div> 
           </div>
@@ -65,16 +65,16 @@
             <p style="margin-bottom: 0%;"><label for="time" style="font-size: large; color: cornflowerblue;">운동시간</label></p>
             <div>
               <div>
-                <input type="checkbox" name="time1" style="margin-left: 20px;"> 30분 미만
+                <input type="checkbox" class="checkbox3" name="time1" style="margin-left: 20px;"> 30분 미만
               </div>
               <div>
-                <input type="checkbox" name="time2" style="margin-left: 20px;"> 30분 이상 1시간 미만
+                <input type="checkbox" class="checkbox3" name="time2" style="margin-left: 20px;"> 30분 이상 1시간 미만
               </div>
               <div>
-                <input type="checkbox" name="time3" style="margin-left: 20px;"> 1시간 이상 2시간 미만
+                <input type="checkbox" class="checkbox3" name="time3" style="margin-left: 20px;"> 1시간 이상 2시간 미만
               </div>
               <div>
-                <input type="checkbox" name="time4" style="margin-left: 20px;"> 2시간 이상
+                <input type="checkbox" class="checkbox3" name="time4" style="margin-left: 20px;"> 2시간 이상
               </div>
             </div>
           </div>
@@ -83,13 +83,13 @@
             <p style="font-size: small; color: gray; margin-top: 0%; margin-left: 10px; margin-bottom: 0%;">(평균적인 식습관 생각해주세요)</p>
             <div>
               <div>
-                <input type="checkbox" name="meal1" style="margin-left: 20px;"> 하루 3끼
+                <input type="checkbox" class="checkbox4" name="meal1" style="margin-left: 20px;"> 하루 3끼
               </div>
               <div>
-                <input type="checkbox" name="meal2" style="margin-left: 20px;"> 하루 2끼
+                <input type="checkbox" class="checkbox4" name="meal2" style="margin-left: 20px;"> 하루 2끼
               </div>
               <div>
-                <input type="checkbox" name="meal3" style="margin-left: 20px;"> 하루 1끼
+                <input type="checkbox" class="checkbox4" name="meal3" style="margin-left: 20px;"> 하루 1끼
               </div>
             </div>
           </div>
@@ -98,17 +98,13 @@
             <p style="font-size: small; color: gray; margin-top: 0%; margin-left: 10px; margin-bottom: 0%;">(중복 선택 가능)</p>
             <div>
               <div>
-                <input type="checkbox" name="disease1" style="margin-left: 20px;"> 디스크(허리, 목 등)
+                <input type="checkbox" class="checkbox5" name="disease1" style="margin-left: 20px;"> 디스크(허리, 목 등)
               </div>
               <div>
-                <input type="checkbox" name="disease2" style="margin-left: 20px;"> 당뇨
+                <input type="checkbox" class="checkbox5" name="disease2" style="margin-left: 20px;"> 당뇨
               </div>
               <div>
-                <input type="checkbox" name="disease3" style="margin-left: 20px;"> 호흡기질환
-              </div>
-              <div>
-                <input type="checkbox" name="disease4" style="margin-left: 20px;"> 기타
-                <input type="text" size="10" name="disease5" style="margin-left: 2px;">
+                <input type="checkbox" class="checkbox5" name="disease3" style="margin-left: 20px;"> 호흡기질환
               </div>
             </div>
           </div>
@@ -116,17 +112,13 @@
             <p style="margin-bottom: 0%;"><label for="goal" style="font-size: large; color: cornflowerblue;">사용목적</label></p>
             <div>
               <div>
-                <input type="checkbox" name="goal1" style="margin-left: 20px;"> 체중 감량
+                <input type="checkbox" class="checkbox6" name="goal1" style="margin-left: 20px;"> 체중 감량
               </div>
               <div>
-                <input type="checkbox" name="goal2" style="margin-left: 20px;"> 단순 건강관리
+                <input type="checkbox" class="checkbox6" name="goal2" style="margin-left: 20px;"> 단순 건강관리
               </div>
               <div>
-                <input type="checkbox" name="goal3" style="margin-left: 20px;"> 재활치료
-              </div>
-              <div>
-                <input type="checkbox" name="goal4" style="margin-left: 20px;"> 기타
-                <input type="text" size="10" name="goal5" style="margin-left: 2px;">
+                <input type="checkbox" class="checkbox6" name="goal3" style="margin-left: 20px;"> 재활치료
               </div>
             </div>
           </div>
