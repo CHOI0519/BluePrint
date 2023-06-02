@@ -6,6 +6,25 @@ function gomain() {
 
 // 체크리시트 빈칸 사항 점검
 function AlertCheckbox1(){
+  if($('#cm').val().length == 0){
+    alert("키를 입력하세요");
+    valid = true;
+    return false;
+  }
+  else{
+    valid = false;
+  }
+
+
+ if($('#kg').val().length == 0){
+    alert("몸무게를 입력하세요");
+    valid = true;
+    return false;
+  }
+  else{
+    valid = false;
+  }
+
   var checkboxes = document.getElementsByClassName('checkbox1');
   var checkboxes1 = document.getElementsByClassName('checkbox2');
   var checkboxes2 = document.getElementsByClassName('checkbox3');
@@ -64,28 +83,8 @@ function AlertCheckbox1(){
   }
 }
 
-function AlertCheckbox2(){
-  if($('#cm').val().length == 0){
-    alert("키를 입력하세요");
-    valid = true;
-    return false;
-  }
-  else{
-    valid = false;
-  }
-}
 
 
-function AlertCheckbox3(){
-  if($('#kg').val().length == 0){
-    alert("몸무게를 입력하세요");
-    valid = true;
-    return false;
-  }
-  else{
-    valid = false;
-  }
-}
 
 
 
@@ -95,8 +94,6 @@ function AlertCheckbox3(){
 $(document).ready(function() {
   $('#myForm').submit(function(e){
 
-    AlertCheckbox2();
-    AlertCheckbox3();
     AlertCheckbox1();
     
     e.preventDefault();
@@ -144,7 +141,7 @@ $(document).ready(function() {
 
     // BMI 변수 선언
     var BMI, BMI_result;
-    BMI = weightValue / (heightValue/100)**2 ;
+    BMI = (weightValue / (heightValue/100)**2).toFixed(1);
     if (BMI <= 18.5){
       BMI_result = "저체중"
     } if (18.5 < BMI <= 22.9 ) {
@@ -154,7 +151,6 @@ $(document).ready(function() {
     } else {
       BMI_result = "비만"
     }; 
-    console.log(BMI_result);
     
 
     // 성별 변수 선언
@@ -165,13 +161,95 @@ $(document).ready(function() {
       gendercheck = "여자"
     };
   
+    //운동 횟수
+    var working;
+    var checkboxes1 = document.getElementsByClassName('checkbox2');
+    for (var i = 0; i < checkboxes1.length; i++) {
+      if (checkboxes1[i].checked && checkboxes1[i].name === 'number1') {
+        working = 'number1';
+        break;
+      } else if (checkboxes1[i].checked && checkboxes1[i].name === 'number2') {
+        working = 'number2';
+        break;
+      } else if (checkboxes1[i].checked && checkboxes1[i].name === 'number3') {
+        working = 'number3';
+        break;
+      } else {
+        working = 'number4';
+      }
+    };
+
+    //운동 시간
+    var worktime;
+    var checkboxes2 = document.getElementsByClassName('checkbox3');
+    for (var i = 0; i < checkboxes2.length; i++) {
+      if (checkboxes2[i].checked && checkboxes2[i].name === 'time1') {
+         worktime = 'time1';
+        break;
+      } else if (checkboxes2[i].checked && checkboxes2[i].name === 'time2') {
+         worktime = 'time2';
+        break;
+      } else if (checkboxes2[i].checked && checkboxes2[i].name === 'time3') {
+         worktime = 'time3';
+        break;
+      } else {
+         worktime = 'time4';
+      }
+    };
+
+    //식사량
+    var food;
+    var checkboxes3 = document.getElementsByClassName('checkbox4');
+    for (var i = 0; i < checkboxes3.length; i++) {
+      if (checkboxes3[i].checked && checkboxes3[i].name === 'meal1') {
+         food = 'meal1';
+        break;
+      } else if (checkboxes3[i].checked && checkboxes3[i].name === 'meal2') {
+        food = 'meal2';
+        break;
+      } else {
+        food = 'meal3';
+      }
+    };
+    
+    //보유질병
+    var disease;
+    var checkboxes4 = document.getElementsByClassName('checkbox5');
+    for (var i = 0; i < checkboxes4.length; i++) {
+      if (checkboxes4[i].checked && checkboxes4[i].name === 'disease1') {
+        disease = 'disease1';
+        break;
+      } else if (checkboxes4[i].checked && checkboxes4[i].name === 'disease2') {
+        disease = 'disease2';
+        break;
+      } else {
+        disease = 'disease3';
+      }
+    };
+
+    //사용목적
+    var goal;
+    var checkboxes5 = document.getElementsByClassName('checkbox6');
+    for (var i = 0; i < checkboxes5.length; i++) {
+      if (checkboxes5[i].checked && checkboxes5[i].name === 'goal1') {
+        goal = 'goal1';
+        break;
+      } else if (checkboxes5[i].checked && checkboxes5[i].name === 'goal2') {
+        goal = 'goal2';
+        break;
+      } else {
+        goal = 'goal3';
+      }
+    };
 
 
+    // 로딩화면 생성
     var loadingDiv = $('<div id="loading"></div>');
     var image = new Image();
     image.src = '/public/image/loading.gif';
   
-    //console.log(valid);
+
+    //form형 작성완료 시 로딩화면 및 결과 도출
     if(!valid){
       image.onload = function() {
         loadingDiv.append(image);
@@ -206,7 +284,17 @@ $(document).ready(function() {
           observer.observe(target);
         });
 
-        var newSection = $('<h2>키 : ' + + heightValue + ' cm</h2>');
+        var newSection = $('<section>');
+        newSection.append($('<h2>결과 보고서</h2>'));
+        newSection.append($('<h3>키 : ' +  heightValue + ' cm</h3>'));
+        newSection.append($('<h3>몸무게 : ' +  weightValue + ' kg</h3>'));
+        newSection.append($('<h3>성별 : ' +  gendercheck + ' </h3>'));
+        newSection.append($('<h3>BMI : ' +  BMI + ' / ' + BMI_result + '</h3>'));
+        newSection.append($('<p></p>'));
+        newSection.append($('<h2>한줄 평 : ' +  working + ' / ' + worktime + '</h2>'));
+        
+        newSection.append($('</section>'));
+        
         $('#intro2').append(newSection);
 
       })
