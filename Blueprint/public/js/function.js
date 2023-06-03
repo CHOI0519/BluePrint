@@ -40,7 +40,7 @@ function AlertCheckbox1(){
               for (var l = 0; l < checkboxes3.length; l++) {
                 if (checkboxes3[l].checked) {
                   for (var m = 0; m < checkboxes4.length; m++) {
-                    if (checkboxes4[i].checked) {
+                    if (checkboxes4[m].checked) {
                       checked = true;
                       break;
                     }
@@ -197,6 +197,26 @@ $(document).ready(function() {
       }
     };
 
+    //운동시간 + 운동횟수를 합친 새로운 변수생성  >> 한줄 평 및 그것에 맞는 정보 제공 시 비교가능 한 변수를 만들기 위해
+    var habit;
+    if (working == "number1" || (working == "number2" && worktime == "time1") || (working == "number2" && worktime == "time2")) {
+      habit = "low";  // 1회 미만 모든 경우의 수 || 3회 미만 30분 미만 || 3회 미만 1시간 미만 
+    } else if((working == "number2" && worktime == "time3") || (working == "number2" && worktime == "time4")){
+      habit = "middle"; // 3회 미만 2시간 미만 || 3회 미만 2시간 이상
+    } else if((working == "number3" && worktime == "time1") || (working == "number3" && worktime == "time2")){
+      habit = "middle"; // 5회 미만 30분 미만 || 5회 미만 1시간 미만
+    } else if((working == "number4" && worktime == "time1")){
+      habit = "middle"; // 5회 이상 30분 미만
+    } else if((working == "number3" && worktime == "time3") || (working == "number3" && worktime == "time4")){
+      habit = "high"; // 5회 미만 2시간 미만 || 5회 미만 2시간 이상
+    } else if((working == "number3" && worktime == "time3") || (working == "number3" && worktime == "time4")){
+      habit = "high"; // 5회 미만 2시간 미만 || 5회 미만 2시간 이상
+    } else {
+      habit = "high"; 
+    }
+    console.log(habit);
+    
+
     //식사량
     var food;
     var checkboxes3 = document.getElementsByClassName('checkbox4');
@@ -241,6 +261,7 @@ $(document).ready(function() {
         goal = 'goal3';
       }
     };
+    
 
 
     // 로딩화면 생성
@@ -291,11 +312,52 @@ $(document).ready(function() {
         newSection.append($('<h3>성별 : ' +  gendercheck + ' </h3>'));
         newSection.append($('<h3>BMI : ' +  BMI + ' / ' + BMI_result + '</h3>'));
         newSection.append($('<p></p>'));
-        newSection.append($('<h2>한줄 평 : ' +  working + ' / ' + worktime + '</h2>'));
-        
         newSection.append($('</section>'));
         
         $('#intro2').append(newSection);
+        
+        // json에 저장 되있는 값 가져오기
+        fetch('/json/list.json')
+        .then(response => response.json())
+        .then(data  => {
+          var lifecycle;
+          if (goal == 'goal1'){
+            if(habit == 'low'){
+              lifecycle = data.For_diet.low;
+            } else if (habit == 'middle'){
+              lifecycle = data.For_diet.middle;              
+            } else {
+              lifecycle = data.For_diet.high;
+            } 
+          }
+          else if (goal == 'goal2') {
+            if(habit == 'low'){
+              lifecycle = data.For_health.low;
+            } else if (habit == 'middle'){
+              lifecycle = data.For_health.middle;              
+            } else {
+              lifecycle = data.For_health.high;
+            } 
+          }
+          else{
+            if(habit == 'low'){
+              lifecycle = data.For_medical.low;
+            } else if (habit == 'middle'){
+              lifecycle = data.For_medical.middle;              
+            } else {
+              lifecycle = data.For_medical.high;
+            } 
+          };
+          // 가져온 json 값 section으로 만들기 
+          var newSection2 = $('<section style="margin-">');
+          newSection2.append($('<h2 stlye ="color: blue;"> 한줄 평 : ' + lifecycle + '</h2>'));
+          newSection2.append($('</section>'));
+  
+          $('#intro2').append(newSection2);
+        })
+        .catch(error => console.error(error));
+
+
 
       })
       .catch(error => {
