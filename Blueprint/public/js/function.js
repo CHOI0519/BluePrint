@@ -284,8 +284,9 @@ $(document).ready(function() {
           observer.observe(target);
         });
 
-        var newSection = $('<section>');
+        var newSection = $('<div>');
         newSection.append($('<h2>결과 보고서</h2>'));
+        HEAD
         newSection.append($('<h3>키 : ' +  heightValue + ' cm</h3>'));
         newSection.append($('<h3>몸무게 : ' +  weightValue + ' kg</h3>'));
         newSection.append($('<h3>성별 : ' +  gendercheck + ' </h3>'));
@@ -296,6 +297,67 @@ $(document).ready(function() {
         newSection.append($('</section>'));
         
         $('#intro2').append(newSection);
+        newSection.append($('<h2>키 : ' +  heightValue + ' cm</h2>'));
+        newSection.append($('<h2>몸무게 : ' +  weightValue + ' kg</h2>'));
+        newSection.append($('<h2>성별 : ' +  gendercheck + ' </h2>'));
+        newSection.append($('<h2>BMI : ' +  BMI + ' / ' + BMI_result + '</h2>'));
+        newSection.append($('</div>'));
+        
+        $('#intro2').append(newSection);
+        
+        // json에 저장 되있는 값 가져오기
+        fetch('/json/list.json')
+        .then(response => response.json())
+        .then(data  => {
+          var lifecycle;
+          if (goal == 'goal1'){
+            if(habit == 'low'){
+              lifecycle = data.For_diet.low;
+            } else if (habit == 'middle'){
+              lifecycle = data.For_diet.middle;              
+            } else {
+              lifecycle = data.For_diet.high;
+            } 
+          }
+          else if (goal == 'goal2') {
+            if(habit == 'low'){
+              lifecycle = data.For_health.low;
+            } else if (habit == 'middle'){
+              lifecycle = data.For_health.middle;              
+            } else {
+              lifecycle = data.For_health.high;
+            } 
+          }
+          else{
+            if(habit == 'low'){
+              lifecycle = data.For_medical.low;
+            } else if (habit == 'middle'){
+              lifecycle = data.For_medical.middle;              
+            } else {
+              lifecycle = data.For_medical.high;
+            } 
+          };
+          // 가져온 json 값 section으로 만들기 
+          var newSection2 = $('<div>');
+          newSection2.append($('<p><한줄 평가></p>'));
+          newSection2.append($('<p>' + lifecycle + '</p>'));
+          newSection2.append($('</div>'));
+          
+          
+          // newSection2.css('margin-top','300px');
+          newSection2.css('color','#4966F5');
+          newSection2.css('font-size','25px');
+          newSection2.css('font-family','"GmarketSans"');
+          newSection2.css('src','url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff")');
+          
+          $('#intro3').append(newSection2);
+          
+
+        })
+        .catch(error => console.error(error));
+
+
+// >>>>>>> 2866f04 (결과 체크 리스트 스타일 수정)
 
       })
       .catch(error => {
