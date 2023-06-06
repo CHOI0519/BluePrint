@@ -1,0 +1,48 @@
+[
+    {   
+        "img":"/public/image/food/leek.png",
+        "text" : "부추",
+        "explain" : "부추는 다른 향신료에 비해 비타민A의 함량이 높고 비타민B2와 비타민C, 카로틴, 칼슘, 철 등의 영양소가 많이 함유돼 있습니다."
+    },
+    {   
+        "img":"/public/image/food/mushroom.png",
+        "text" : "표고버섯",
+        "explain" : "복부지방이 심한 환자의 지방을 빼주는데 효과가 좋으며 특히 표고버섯에 다량으로 함유된 비타민D가 칼슘의 흡수를 도와 약해진 뼈에 도움을 줍니다."
+    },
+    {   
+        "img":"/public/image/food/rice.png",
+        "text" : "현미",
+        "explain" : "현미에는 허리디스크에 좋은 칼슘, 인, 칼륨, 각종 비타민 등 유용한 성분이 함유돼 있어 뼈를 튼튼하게 해주는데 좋은 식품입니다."
+    },
+    {   
+        "img":"/public/image/food/jabbgoc.png",
+        "text" : "잡곡",
+        "explain" : "현미나 귀리, 보리, 퀴노아 등 잡곡은 탄수화물이 천천히 소화·흡수되어 혈당이 천천히 오르는 복합당 식품이에요."
+    },
+    {   
+        "img":"/public/image/food/spinach.png",
+        "text" : "잎채소",
+        "explain" : "복부지방이 심한 환자의 지방을 빼주는데 효과가 좋으며 특히 표고버섯에 다량으로 함유된 비타민D가 칼슘의 흡수를 도와 약해진 뼈에 도움을 줍니다."
+    },
+    {   
+        "img":"/public/image/food/fish.png",
+        "text" : "생선",
+        "explain" : "현미에는 허리디스크에 좋은 칼슘, 인, 칼륨, 각종 비타민 등 유용한 성분이 함유돼 있어 뼈를 튼튼하게 해주는데 좋은 식품입니다."
+    },
+    
+    {   
+        "img":"/public/image/food/pear.png",
+        "text" : "배",
+        "explain" : "배에 있는 루테올린 성분은 기관지염, 가래, 기침 완화에 도움을 줍니다."
+    },
+    {   
+        "img":"/public/image/food/garlic.png",
+        "text" : "마늘",
+        "explain" : "피톤치드의 일종인 알라신이 풍분한 마늘은 뛰어난 살균 작용으로 수은 등 중금속이나 노폐물이 몸 안에 쌓이는 것을 막아줍니다."
+    },
+    {   
+        "img":"/public/image/food/wakame.png",
+        "text" : "미역",
+        "explain" : "미역 등 해조류에 많은 클로렐라는 단백질, 지방, 미네랄, 비타민 등을 함유해 다이옥신, 카드뮴, 납 등 중금속을 몸 밖으로 배출시키는데 효과적입ㅂ니다."
+    }
+]

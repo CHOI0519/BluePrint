@@ -6,7 +6,8 @@ body {
     height: 100px;
     background-color: rgb(68,114,196);
     margin: 0;
-    display: flex;
+    display:flex;
+    
 }
 
 .block2 {

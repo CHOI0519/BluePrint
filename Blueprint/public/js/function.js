@@ -1,3 +1,5 @@
+
+
 var valid = true;
 
 function gomain() {
@@ -214,7 +216,7 @@ $(document).ready(function() {
     } else {
       habit = "high"; 
     }
-    console.log(habit);
+    
     
 
     //식사량
@@ -246,6 +248,7 @@ $(document).ready(function() {
         disease = 'disease3';
       }
     };
+    // console.log(disease);
 
     //사용목적
     var goal;
@@ -329,6 +332,11 @@ $(document).ready(function() {
             } else {
               lifecycle = data.For_diet.high;
             } 
+            var newSection3 = $('<div><img src="/public/image/diet.png">');
+            newSection3.append($('<p>' + data.diet.exercise + '</p>'));
+            newSection3.append($('</div>'));
+            
+            $('#intro4').append(newSection3);
           }
           else if (goal == 'goal2') {
             if(habit == 'low'){
@@ -338,6 +346,11 @@ $(document).ready(function() {
             } else {
               lifecycle = data.For_health.high;
             } 
+            var newSection3 = $('<div><img src="/public/image/health.png">');
+            newSection3.append($('<p>' + data.health.exercise + '</p>'));
+            newSection3.append($('</div>'));  
+            
+            $('#intro4').append(newSection3);
           }
           else{
             if(habit == 'low'){
@@ -347,16 +360,24 @@ $(document).ready(function() {
             } else {
               lifecycle = data.For_medical.high;
             } 
+            var newSection3 = $('<div><img src="/public/image/medical.png">');
+            newSection3.append($('<p>' + data.medical.exercise + '</p>'));
+            newSection3.append($('</div>'));  
+            
+            $('#intro4').append(newSection3);
           };
           // 가져온 json 값 section으로 만들기 
+          newSection3.css('display','flex');
+          newSection3.css('color','gray');
+          newSection3.css('font-size','20px');
+          newSection3.css('font-family','"GmarketSans"');
+          newSection3.css('src','url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff")');
 
           var newSection2 = $('<div>');
           newSection2.append($('<p><한줄 평가></p>'));
           newSection2.append($('<p>' + lifecycle + '</p>'));
           newSection2.append($('</div>'));
-          
-          
-          // newSection2.css('margin-top','300px');
+                    
           newSection2.css('color','#4966F5');
           newSection2.css('font-size','25px');
           newSection2.css('font-family','"GmarketSans"');
@@ -364,15 +385,150 @@ $(document).ready(function() {
           
           $('#intro3').append(newSection2);
           
-
         })
         .catch(error => console.error(error));
 
+        fetch('/json/foodlist.json')
+          .then(response => response.json())
+          .then(data  => {
+
+            var newSection4 = $('<div>'); 
+            
+            if (disease == 'disease1') {
+              newSection4.append($('<p style="margin-bottom: 30px; font-size:large;">디스크에 좋은 음식은 다음과 같아요!</p>'))
+
+              var selectData = data.slice(0, 3); 
+
+              $.each(selectData, function(index, entry){
+                var div = $('<div>');
+                var img = $('<img>');
+                img.attr('src', entry.img);
+                img.attr('m')
+                div.append(img);
+                var div1 = $('<div>');
+                div1.append($('<p>' + entry.text + '</p>'));
+                div1.append($('<p>' + entry.explain + '</p>'));
+                div1.append($('</div>'));
+                div.append(div1);
+                div.append('</div>');
+  
+                div.css({
+                  "display":"flex",
+                  "color":"gray",
+                  "font-size":"16px"
+                });
+
+                div1.css({
+                  "margin-start":"15px"
+                });
+                
+                newSection4.append(div);
+
+              });
+              newSection4.append($('</div>'));
+
+              newSection4.css({
+                "font-size" : "25px",
+                'font-family' : '"GmarketSans"',
+                "src" : 'url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff")'
+              });
+
+              $('#intro5').append(newSection4);
+  
+            }
+            else if (disease == 'disease2') {
+              newSection4.append($('<p style="margin-bottom: 30px; font-size:large;">당뇨에 좋은 음식은 다음과 같아요!</p>'))
+
+              var selectData = data.slice(3, 6); 
+
+              $.each(selectData, function(index, entry){
+                var div = $('<div>');
+                var img = $('<img>');
+                img.attr('src', entry.img);
+                img.attr('m')
+                div.append(img);
+                var div1 = $('<div>');
+                div1.append($('<p>' + entry.text + '</p>'));
+                div1.append($('<p>' + entry.explain + '</p>'));
+                div1.append($('</div>'));
+                div.append(div1);
+                div.append('</div>');
+  
+                div.css({
+                  "display":"flex",
+                  "color":"gray",
+                  "font-size":"16px"
+                });
+                
+                div1.css({
+                  "margin-start":"15px"
+                });
+                
+                newSection4.append(div);
+                
+              });
+              newSection4.append($('</div>'));
+
+              newSection4.css({
+                "font-size" : "25px",
+                'font-family' : '"GmarketSans"',
+                "src" : 'url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff")'
+              });
+
+              $('#intro5').append(newSection4);
+  
+            }
+            else {
+              newSection4.append($('<p style="margin-bottom: 30px; font-size:large;">호흡기질환에 좋은 음식은 다음과 같아요!</p>'))
+
+              var selectData = data.slice(6, 9); 
+
+              $.each(selectData, function(index, entry){
+                var div = $('<div>');
+                var img = $('<img>');
+                img.attr('src', entry.img);
+                img.attr('m')
+                div.append(img);
+                var div1 = $('<div>');
+                div1.append($('<p>' + entry.text + '</p>'));
+                div1.append($('<p>' + entry.explain + '</p>'));
+                div1.append($('</div>'));
+                div.append(div1);
+                div.append('</div>');
+  
+                div.css({
+                  "display":"flex",
+                  "color":"gray",
+                  "font-size":"16px"
+                });
+                
+                div1.css({
+                  "margin-start":"15px"
+                });
+                
+                newSection4.append(div);
+                
+              });
+              newSection4.append($('</div>'));
+
+              newSection4.css({
+                "font-size" : "25px",
+                'font-family' : '"GmarketSans"',
+                "src" : 'url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff")'
+              });
+
+              $('#intro5').append(newSection4);
+  
+            }
+          })
+          .catch(error => console.error(error));
+
+        
 
       })
       .catch(error => {
         console.error('Error loading HTML:', error);
-      })
+      });
     
       return false; // Prevent the default button behavior
     }
