@@ -307,7 +307,6 @@ $(document).ready(function() {
 
         var newSection = $('<div>');
         newSection.append($('<h2>결과 보고서</h2>'));
-        HEAD
         newSection.append($('<h3>키 : ' +  heightValue + ' cm</h3>'));
         newSection.append($('<h3>몸무게 : ' +  weightValue + ' kg</h3>'));
         newSection.append($('<h3>성별 : ' +  gendercheck + ' </h3>'));
@@ -316,16 +315,6 @@ $(document).ready(function() {
         newSection.append($('</section>'));
         
         $('#intro2').append(newSection);
-<<<<<<< HEAD
-        newSection.append($('<h2>키 : ' +  heightValue + ' cm</h2>'));
-        newSection.append($('<h2>몸무게 : ' +  weightValue + ' kg</h2>'));
-        newSection.append($('<h2>성별 : ' +  gendercheck + ' </h2>'));
-        newSection.append($('<h2>BMI : ' +  BMI + ' / ' + BMI_result + '</h2>'));
-        newSection.append($('</div>'));
-        
-        $('#intro2').append(newSection);
-=======
->>>>>>> 5c569e64324403f28e469521e491c15848fa100a
         
         // json에 저장 되있는 값 가져오기
         fetch('/json/list.json')
@@ -360,7 +349,7 @@ $(document).ready(function() {
             } 
           };
           // 가져온 json 값 section으로 만들기 
-<<<<<<< HEAD
+
           var newSection2 = $('<div>');
           newSection2.append($('<p><한줄 평가></p>'));
           newSection2.append($('<p>' + lifecycle + '</p>'));
@@ -376,21 +365,9 @@ $(document).ready(function() {
           $('#intro3').append(newSection2);
           
 
-=======
-          var newSection2 = $('<section style="margin-">');
-          newSection2.append($('<h2 stlye ="color: blue;"> 한줄 평 : ' + lifecycle + '</h2>'));
-          newSection2.append($('</section>'));
-  
-          $('#intro2').append(newSection2);
->>>>>>> 5c569e64324403f28e469521e491c15848fa100a
         })
         .catch(error => console.error(error));
 
-
-<<<<<<< HEAD
-// >>>>>>> 2866f04 (결과 체크 리스트 스타일 수정)
-=======
->>>>>>> 5c569e64324403f28e469521e491c15848fa100a
 
       })
       .catch(error => {
