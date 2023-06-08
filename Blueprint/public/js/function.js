@@ -1,3 +1,5 @@
+// const { response } = require("express");
+// const { error } = require("jquery");
 
 
 var valid = true;
@@ -387,6 +389,43 @@ $(document).ready(function() {
           
         })
         .catch(error => console.error(error));
+        
+        fetch('/json/youtube.json')
+          .then(response => response.json())
+          .then(data => {
+
+            var newSection5 = $('<p style="margin-bottom: 35px;>관련 영상도 보여드릴게요. 참고하세요!</p>');
+            var div2 = $('<div>');
+            if(goal == 'goal1'){
+              for (var i=0; i<data.diet.length; i++){
+                div2.append($('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + data.diet[i] + '"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'));
+              }
+            }
+            else if (goal == 'goal2') {
+              for (var i=0; i<data.diet.length; i++){
+                div2.append($('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + data.health[i] + '"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'));
+              }
+            }
+            else {              
+              for (var i=0; i<data.diet.length; i++){
+                div2.append($('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + data.medical[i] + '"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'));
+              }
+            }
+
+            
+            newSection5.append(div2);
+            newSection5.css({
+              "font-size" : "25px",
+              'font-family' : '"GmarketSans"',
+              "src" : 'url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff")'
+            });
+
+            $('#intro5').append(newSection5);
+            $('#intro5 iframe').css('margin-bottom', '30px');
+
+          })
+          .catch(error => console.error(error));
+          
 
         fetch('/json/foodlist.json')
           .then(response => response.json())
@@ -517,7 +556,7 @@ $(document).ready(function() {
                 "src" : 'url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff")'
               });
 
-              $('#intro5').append(newSection4);
+              $('#intro6').append(newSection4);
   
             }
           })
