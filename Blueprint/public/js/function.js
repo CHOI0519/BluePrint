@@ -287,7 +287,7 @@ $(document).ready(function() {
         loadingDiv.remove();
       }, 3000);
 
-      fetch('/ListPage.html')
+      fetch('ListPage.html')
       .then(response => response.text())
       .then(html => {
         const targetDiv = document.getElementById('box2');
@@ -394,34 +394,41 @@ $(document).ready(function() {
           .then(response => response.json())
           .then(data => {
 
-            var newSection5 = $('<p style="margin-bottom: 35px;>관련 영상도 보여드릴게요. 참고하세요!</p>');
-            var div2 = $('<div>');
+            // var newSection5 = $('<p style="margin-bottom: 35px;>관련 영상도 보여드릴게요. 참고하세요!</p>');
+            // var div2 = $('<div>');
             if(goal == 'goal1'){
               for (var i=0; i<data.diet.length; i++){
-                div2.append($('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + data.diet[i] + '"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'));
+                var iframe = $('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + data.diet[i] + '"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>');
+                 
+                console.log(data.diet[i]);
               }
             }
             else if (goal == 'goal2') {
-              for (var i=0; i<data.diet.length; i++){
+              for (var i=0; i<data.health.length; i++){
+                var div2 = $('<div>');
                 div2.append($('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + data.health[i] + '"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'));
+                div2.append($('</div>'));
               }
             }
             else {              
-              for (var i=0; i<data.diet.length; i++){
-                div2.append($('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + data.medical[i] + '"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'));
+              for (var i=0; i<data.medical.length; i++){
+                var div2 = $('<div>');
+                div2.append($('<iframe width="560" height="315" src="https://www.youtube.com/embed/gMaB-fG4u4g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'))
+                div2.append($('</div>'));
               }
             }
-
             
-            newSection5.append(div2);
-            newSection5.css({
-              "font-size" : "25px",
-              'font-family' : '"GmarketSans"',
-              "src" : 'url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff")'
-            });
+            div2.css('margin-bottom', '50px');
+            
+            // newSection5.append(div2);
+            // newSection5.css({
+            //   "font-size" : "25px",
+            //   'font-family' : '"GmarketSans"',
+            //   "src" : 'url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff")'
+            // });
 
-            $('#intro5').append(newSection5);
-            $('#intro5 iframe').css('margin-bottom', '30px');
+            $('#intro5').append(iframe);
+            // $('#intro5 iframe').css('margin-bottom', '30px');
 
           })
           .catch(error => console.error(error));

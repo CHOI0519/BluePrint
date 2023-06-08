@@ -25,6 +25,7 @@ const port = 8080;
 //     }
 // }));
 
+
 app.use((req, res, next) => {
   res.setHeader('Content-Security-Policy',
   "script-src 'self' 'unsafe-inline'");
@@ -49,6 +50,7 @@ app.get('/public/stylesheet/Main.css', (req, res) => {
 
 app.get('/', (req, res) => { 
   res.sendFile(__dirname +  '/views/MainPage.html');
+  res.setHeader('Permissions-Policy', 'your-configured-features'); 
 })
 
 app.get('/views/MainPage.html', (req, res) => { 
@@ -71,6 +73,7 @@ app.use('/public', express.static('public', {
     }
   }
 }));
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
