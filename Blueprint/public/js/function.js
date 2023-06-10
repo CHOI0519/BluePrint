@@ -394,41 +394,35 @@ $(document).ready(function() {
           .then(response => response.json())
           .then(data => {
 
-            // var newSection5 = $('<p style="margin-bottom: 35px;>관련 영상도 보여드릴게요. 참고하세요!</p>');
-            // var div2 = $('<div>');
+            var newSection5 = $('<p> 관련 영상도 보여드릴게요. 참고하세요!</p>');
+            $('#intro5').append(newSection5);
+            
+            newSection5.css({
+              "font-size" : "25px",
+              'font-family' : '"GmarketSans"',
+              "src" : 'url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff")',
+              "margin-bottom" : "50px"
+            });
+
             if(goal == 'goal1'){
               for (var i=0; i<data.diet.length; i++){
-                var iframe = $('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + data.diet[i] + '"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>');
-                 
-                console.log(data.diet[i]);
+               var iframe = $('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + data.diet[i] + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>');
+               $('#intro5').append(iframe); 
               }
             }
-            else if (goal == 'goal2') {
-              for (var i=0; i<data.health.length; i++){
-                var div2 = $('<div>');
-                div2.append($('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + data.health[i] + '"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'));
-                div2.append($('</div>'));
+            else if(goal == 'goal2'){
+              for (var i=0; i<data.diet.length; i++){
+               var iframe = $('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + data.health[i] + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>');
+               $('#intro5').append(iframe); 
               }
             }
-            else {              
-              for (var i=0; i<data.medical.length; i++){
-                var div2 = $('<div>');
-                div2.append($('<iframe width="560" height="315" src="https://www.youtube.com/embed/gMaB-fG4u4g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'))
-                div2.append($('</div>'));
+            if(goal == 'goal3'){
+              for (var i=0; i<data.diet.length; i++){
+               var iframe = $('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + data.medical[i] + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>');
+               $('#intro5').append(iframe); 
               }
             }
             
-            div2.css('margin-bottom', '50px');
-            
-            // newSection5.append(div2);
-            // newSection5.css({
-            //   "font-size" : "25px",
-            //   'font-family' : '"GmarketSans"',
-            //   "src" : 'url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff")'
-            // });
-
-            $('#intro5').append(iframe);
-            // $('#intro5 iframe').css('margin-bottom', '30px');
 
           })
           .catch(error => console.error(error));
@@ -479,7 +473,7 @@ $(document).ready(function() {
                 "src" : 'url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff")'
               });
 
-              $('#intro5').append(newSection4);
+              $('#intro6').append(newSection4);
   
             }
             else if (disease == 'disease2') {
@@ -521,7 +515,7 @@ $(document).ready(function() {
                 "src" : 'url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff")'
               });
 
-              $('#intro5').append(newSection4);
+              $('#intro6').append(newSection4);
   
             }
             else {
