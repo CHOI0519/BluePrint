@@ -155,3 +155,12 @@ image {
     max-height: 100%;
   }
 
+#checkList {
+    font-family: "GmarketSans";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
+    font-weight: bold;
+}
+
+#StickyNote {
+    overflow-y: auto;
+}

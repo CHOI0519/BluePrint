@@ -1,9 +1,7 @@
-// const { response } = require("express");
-// const { error } = require("jquery");
-
 
 var valid = true;
 
+// 로고 페이지 클릭시 메인 화면 이동
 function gomain() {
     location.href = "/views/MainPage.html";
 }
@@ -29,11 +27,11 @@ function AlertCheckbox1(){
     valid = false;
   }
 
-  var checkboxes = document.getElementsByClassName('checkbox1');
-  var checkboxes1 = document.getElementsByClassName('checkbox2');
-  var checkboxes2 = document.getElementsByClassName('checkbox3');
-  var checkboxes3 = document.getElementsByClassName('checkbox4');
-  var checkboxes4 = document.getElementsByClassName('checkbox6');
+  var checkboxes = $('.checkbox1');
+  var checkboxes1 = $('.checkbox2');
+  var checkboxes2 = $('.checkbox3');
+  var checkboxes3 = $('.checkbox4');
+  var checkboxes4 = $('.checkbox6');
   var checked = false;
   for (var i = 0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked) {
@@ -574,3 +572,15 @@ $(document).ready(function() {
     }
   });
 });
+
+//메모장 설정 기능 
+function saveNote() {
+  var noteText = $('#memo').val();
+  if (noteText !== '') {
+    var checkbox = $('<input type="checkbox">');
+    var label = $('<label></label>').text(noteText);
+    $('#StickyNote').append($('<div></div>').append(checkbox, label));
+    $('#memo').val('');
+  }
+}
+

@@ -33,7 +33,21 @@
             };
             var map = new kakao.maps.Map(mapContainer, mapOption);  
           </script>           
-          <div style="background-color: oldlace; width: 100%; height: 280px;"></div>
-        </div>
+          <div style="background-color: rgb(251, 255, 175); width: 100%; height: 280px; display:inline-block;">
+            <p id="checkList" style="color: rgb(41, 41, 41); margin-top: 0%; margin-bottom: 0%; font-size: large;"> /// Sticky Note /// </p>
+            <p id="checkList" style="color: rgb(104, 104, 104); margin-top: 0%; margin-bottom: 0%; font-size: small;"> 오늘의 운동 리스트 등을 작성해보세요! </p>
+            <div style="display: flex;">
+              <div id="StickyNote" style="width: 60%;" ></div>
+              <div style="width: 40%;">
+                <textarea id="memo" style="margin-top: 90%;"></textarea>
+                <div>
+                  <button onclick="saveNote()">저장</button>
+                  <button onclick="clearNote()">삭제</button>
+                  <button onclick="loadNote()">불러오기</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
   </body>
 </html>
