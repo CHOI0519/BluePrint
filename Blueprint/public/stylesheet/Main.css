@@ -54,18 +54,18 @@ body {
     overflow: scroll;
 }
 
-::-webkit-scrollbar {
+#box1::-webkit-scrollbar {
     width: 10px;
     border-width: 10px;
 }
 
-::-webkit-scrollbar-thumb {
+#box1::-webkit-scrollbar-thumb {
     background-color:  rgb(234, 234, 234);
     border-radius: 15px;
 
 }
 
-::-webkit-scrollbar-thumb:hover {
+#box1::-webkit-scrollbar-thumb:hover {
 	background-color:#91e1f0;
 }
 
@@ -161,6 +161,76 @@ image {
     font-weight: bold;
 }
 
-#StickyNote {
-    overflow-y: auto;
+#checkList .sc {
+    color: black;
 }
+
+/* #StickyNote {
+    overflow: scroll;
+} */
+
+#memo {
+    color: #313131;
+    font-family: "GmarketSans";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
+    font-weight: bold;
+}
+
+#memobtn {
+    background-color: rgb(238, 227, 72);
+    border-color: rgb(238, 227, 72);
+    border-radius: 16px;
+    padding-top: 3px;
+    color: #313131;
+    font-family: "GmarketSans";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
+    font-weight: bold;
+}
+
+.sectionlist {
+    background-color:white;
+    width: 60%; 
+    height: 580px; 
+    overflow: scroll;
+}
+
+
+.sectionlist::-webkit-scrollbar {
+    width: 10px;
+    border-width: 10px;
+    height: 0%;
+}
+
+.sectionlist::-webkit-scrollbar-thumb {
+    background-color:  rgb(234, 234, 234);
+    border-radius: 15px;
+
+}
+
+.sectionlist::-webkit-scrollbar-thumb:hover {
+	background-color:#979797;
+}
+
+#StickyNote {
+    width: 60%; 
+    height: 220px;
+    padding-top: 10px;
+    overflow: scroll;
+}
+
+#StickyNote::-webkit-scrollbar {
+    width: 10%;
+    border-width: 10px;
+    height: 0%;
+}
+
+#StickyNote::-webkit-scrollbar-thumb {
+    background-color:  rgb(251, 255, 175);
+    border-radius: 15px;
+
+}
+
+#StickyNote::-webkit-scrollbar-thumb:hover {
+	background-color:rgb(238, 227, 72);
+}
+

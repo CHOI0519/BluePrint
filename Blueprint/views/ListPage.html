@@ -9,7 +9,7 @@
   </head>
   <body>
       <div id="box2" style="display: flex; height: 580px; width: 100%;">
-        <div id="showlist" class="sectionlist" style="background-color:white; width: 60%; height: 580px; overflow: scroll;">
+        <div id="showlist" class="sectionlist" >
           <section class="fade-class" id="intro1" style="margin: 200px; margin-bottom: 300px;">
             <h1>⬅️체크 리스트를 완료 하셨나요?</h1>
             <P style="color:gray;">완료 하셨다면 아래로 스크롤 하세요↓</P>
@@ -33,17 +33,17 @@
             };
             var map = new kakao.maps.Map(mapContainer, mapOption);  
           </script>           
-          <div style="background-color: rgb(251, 255, 175); width: 100%; height: 280px; display:inline-block;">
-            <p id="checkList" style="color: rgb(41, 41, 41); margin-top: 0%; margin-bottom: 0%; font-size: large;"> /// Sticky Note /// </p>
-            <p id="checkList" style="color: rgb(104, 104, 104); margin-top: 0%; margin-bottom: 0%; font-size: small;"> 오늘의 운동 리스트 등을 작성해보세요! </p>
+          <div id="checkList" style="background-color: rgb(251, 255, 175); width: 100%; height: 280px; display:inline-block;">
+            <p  style="color: rgb(41, 41, 41); margin-top: 0%; margin-bottom: 0%; font-size: large; background-color: rgb(238, 227, 72);"> /// Sticky Note /// </p>
+            <p  style="color: rgb(104, 104, 104); margin-top: 0%; margin-bottom: 0%; font-size: small; background-color: rgb(238, 227, 72);"> 오늘의 운동 리스트 등을 작성해보세요! </p>
             <div style="display: flex;">
-              <div id="StickyNote" style="width: 60%;" ></div>
+              <div id="StickyNote" ></div>
               <div style="width: 40%;">
-                <textarea id="memo" style="margin-top: 90%;"></textarea>
+                <input type="text" id="memo" style="margin-top: 10%; margin-bottom: 10px;"></input>
                 <div>
-                  <button onclick="saveNote()">저장</button>
-                  <button onclick="clearNote()">삭제</button>
-                  <button onclick="loadNote()">불러오기</button>
+                  <button id="memobtn" onclick="saveNote()">저장</button>
+                  <button id="memobtn" onclick="clearNote()">삭제</button>
+                  <button id="memobtn" onclick="emptyNote()">전체 삭제</button>
                 </div>
               </div>
             </div>

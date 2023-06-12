@@ -576,11 +576,34 @@ $(document).ready(function() {
 //메모장 설정 기능 
 function saveNote() {
   var noteText = $('#memo').val();
-  if (noteText !== '') {
-    var checkbox = $('<input type="checkbox">');
+  if (noteText == '' || noteText =='글을 작성해주세요.') {
+    $('#memo').val('글을 작성해주세요.');
+  }
+  else {
+    var memobox =  $('<div>');
+    memobox.css ("display","flex");
+    
+    var checkbox = $('<div>');
+    checkbox.append($('<input type="checkbox">'));
+    
+
     var label = $('<label></label>').text(noteText);
-    $('#StickyNote').append($('<div></div>').append(checkbox, label));
+    label.css("color","black");
+    
+    var textbox = $('<div>')
+    textbox.append(label);
+
+    memobox.append(checkbox, textbox);
+    $('#StickyNote').append(memobox);
     $('#memo').val('');
   }
 }
 
+
+function clearNote() {
+  $('#StickyNote div:last-child').remove();
+}
+
+function emptyNote() {
+  $('#StickyNote').empty();
+}
