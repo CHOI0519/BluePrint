@@ -22,59 +22,9 @@
         </div>
         <div style="display: block; width: 40%; height: 580px; background-color: azure;">
           <div id="map" style="width:100%;height: 300px;"></div>
-          
           <!-- 카카오 API로 지도 불러오는 코드  -->
           <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fa4e2c8e20c5c003f06b50ec6163494c"></script>
-          <script>
-            var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-                mapOption = { 
-                    center: new kakao.maps.LatLng(37.3468471, 126.9524528), // 지도의 중심좌표
-                    level: 5 // 지도의 확대 레벨
-                };
-
-            var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다    
-
-            var positions = [
-            {
-                title: '짐무브 /  ', 
-                latlng: new kakao.maps.LatLng(37.3483241, 126.9552313)
-            },
-            {
-                title: '퍼펙트헬스클럽', 
-                latlng: new kakao.maps.LatLng(37.3480777, 126.9553803)
-            },  
-            {
-                title: '오버탑휘트니스&필라테스 군포점', 
-                latlng: new kakao.maps.LatLng(37.3464992, 126.944337)
-            },
-            {
-                title: '영빈휘트니스센터',
-                latlng: new kakao.maps.LatLng(37.3483942, 126.94459)
-            }
-            ];
-              
-            // 마커 이미지의 이미지 주소입니다
-            var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-
-            for (var i = 0; i < positions.length; i ++) {
-
-                // 마커 이미지의 이미지 크기 입니다
-                var imageSize = new kakao.maps.Size(24, 35); 
-
-                // 마커 이미지를 생성합니다    
-                var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-
-                // 마커를 생성합니다
-                var marker = new kakao.maps.Marker({
-                    map: map, // 마커를 표시할 지도
-                    position: positions[i].latlng, // 마커를 표시할 위치
-                    title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-                    image : markerImage // 마커 이미지 
-                });
-
-                
-            }
-          </script> 
+          <script type="text/javascript" src="../kakao.js"></script> 
 
           <div id="checkList" style="background-color: rgb(251, 255, 175); width: 100%; height: 280px; display:inline-block;">
             <p  style="color: rgb(41, 41, 41); margin-top: 0%; margin-bottom: 0%; font-size: large; background-color: rgb(238, 227, 72);"> /// Sticky Note /// </p>
